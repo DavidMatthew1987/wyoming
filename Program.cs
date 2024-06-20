@@ -1,12 +1,10 @@
 using AnalyticsWebApi.Datamodel;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Diagnostics;
 using AnalyticsWebApi;
-using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.AddServiceDefaults();
+// builder.AddServiceDefaults();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -30,12 +28,12 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 app.UseCors("AllowAllOrigins");
-app.MapDefaultEndpoints();
+// app.MapDefaultEndpoints();
 
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.MapGet("/Analytics/HelloWorld", () => "Hello, world!")
     .WithOpenApi();
